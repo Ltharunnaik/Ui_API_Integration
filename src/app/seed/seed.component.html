@@ -1,0 +1,102 @@
+<form [formGroup]="userForm" (ngSubmit)="Save()" >
+  <!-- <input formControlName="firstName">
+  <input [(ngModel)]="showMoreControls" [ngModelOptions]="{standalone: true}"> -->
+  <div class="container">
+    <div class="box1">
+      <h1>Seed Details</h1>
+      <br><p></p>
+      <label for="label2">Seed Variety</label>
+      <br><p></p> 
+      <mat-form-field>
+        <mat-label>Select an option</mat-label>
+        <mat-select [(value)]="selected" formControlName="SeedVeriety" class="example-form1" required="true">
+          <mat-option>None</mat-option>
+          <mat-option value="option1">Option 1</mat-option>
+          <mat-option value="option2">Option 2</mat-option>
+          <mat-option value="option3">Option 3</mat-option>
+        </mat-select>
+      </mat-form-field>      
+     
+      <br><p></p>
+      <div>
+        <label for="label1">Seed Quantity(Kg/Acre)</label><br><p></p>
+        <input type="number" id="label1" class="example-form"  formControlName="Quantity" placeholder="Number" required="true">
+        <br><p></p>
+        <label for="label2">Amountt Incurred For Seed(Rs/Kg)</label>
+        <br><p></p>
+        <input type="number" id="label2" class="example-form"  formControlName="AmounttIncurredForSeed" placeholder="Number" required="true">
+      </div>
+      <div>
+        <h3>Contractual</h3>
+        <label>
+          <input type="radio" name="options" [defaultChecked]="true"  value="yes"  (click)="handleRadio()" required="true">
+            Yes
+        </label>
+        <label>
+          <input type="radio" name="options" value="no"  (click)="handleRadio1()" required="true">
+            No
+        </label>
+        <label>
+          <input type="radio" name="options" required="true">
+          Pre-Treatment
+        </label>
+    </div>   
+    <div *ngIf="selectedOption === 'yes'">
+      <br><p></p>
+      <label for="label2">Type Of Seed Treatment</label>
+      <br><p></p>
+      <mat-form-field>
+        <mat-label>Select an option</mat-label>
+        <mat-select [(value)]="selected1" formControlName="Treatment" class="example-form1" required="true">
+          <mat-option>None</mat-option>
+          <mat-option value="option11">Option 11</mat-option>
+          <mat-option value="option22">Option 22</mat-option>
+          <mat-option value="option33">Option 33</mat-option>
+        </mat-select>
+      </mat-form-field>    
+ 
+      <br><p></p>
+      <label for="label2">Upload Reference picture</label>
+      <br><p></p>
+      <input type="file" (change)="getFile($event)" id="label2" class="example-form"  formControlName="UploadReferencepicture" placeholder="Text" required="true">
+      <br><p></p>
+      <label for="label2">Name of chemical used for Seed treatment</label>
+      <br><p></p>
+      <mat-form-field>
+        <mat-label>Select an option</mat-label>
+        <mat-select [(value)]="selected2" formControlName="chemical" class="example-form1" required="true">
+          <mat-option>None</mat-option>
+          <mat-option value="option111">Option 111</mat-option>
+          <mat-option value="option222">Option 222</mat-option>
+          <mat-option value="option333">Option 333</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!-- <mat-form-field class="example-full-width">
+        <mat-label>Select</mat-label>
+        <mat-select  multiple  formControlName="chemical" required="true">
+          <mat-select-trigger>
+            {{toppings2.value?.[0] || ''}}
+            @if ((toppings2.value?.length || 0) > 1) {
+              <span class="example-additional-selection">
+                (+{{(toppings2.value?.length || 0) - 1}} {{toppings2.value?.length === 2 ? 'other' : 'others'}})
+              </span>
+            }
+          </mat-select-trigger>
+          @for (toppings2 of toppingList2; track toppings2) {
+        <mat-option [value]="toppings2">{{toppings2}}</mat-option>
+      }
+        </mat-select>
+      </mat-form-field> -->
+    </div>
+    <div>   
+    <div>
+      <button  class="button">Save & Continue</button>
+    </div>
+  </div>
+  </div>
+  </div>
+</form>
+
+
+  
+  

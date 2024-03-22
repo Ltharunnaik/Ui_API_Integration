@@ -1,0 +1,48 @@
+.container{
+    display: flex;
+    background-color: blue;
+    align-items: center;
+    justify-content: center;
+    height: 140px;
+}
+.example-full-width{
+    width: 300px;
+}
+.box1{
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    background-color: rgb(215, 228, 102);
+    height: 550px;
+    width: 400px;
+    border-radius: 10px;
+    padding-top: 50px;
+    padding-left: 30px;
+    font-family: sans-serif;
+}
+
+.example-form {
+    width: 300px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    padding-left: 10px;
+  }
+  
+ .button{
+    height: 35px;
+    width: 150px;
+    border-radius: 5px;
+    border: none;
+    background-color: gray;
+    color: white;
+    font-size: 15px;
+
+ }
+ .button:hover{
+     background-color: blueviolet;
+ }
+ .delete-btn{
+    color: red;
+ }

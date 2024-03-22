@@ -1,0 +1,119 @@
+ <div *ngIf="isComponent1Visible">
+  <app-sowing [show]="isComponent1Visible"
+    (change1)="collect($event)"
+  ></app-sowing>
+</div>
+
+<div *ngIf="isComponent2Visible">
+  <app-seed></app-seed>
+</div> 
+
+<h1>Sowing Table</h1>
+
+<table mat-table [dataSource]="sowingData" class="mat-elevation-z8">
+  
+  <!-- Position Column -->
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef> Id. </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef> Date </th>
+    <td mat-cell *matCellDef="let element"> {{element.Date}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="cost">
+    <th mat-header-cell *matHeaderCellDef> Cost </th>
+    <td mat-cell *matCellDef="let element"> {{element?.Cost}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="picture">
+    <th mat-header-cell *matHeaderCellDef> Picture </th>
+    <td mat-cell *matCellDef="let element"> {{element.Picture}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef> Delate </th>
+    <td mat-cell *matCellDef="let row">
+      <button mat-icon-button color="warn" class="delete-btn" (click)="delateData(row.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <!-- <button class="button" (click)="delateData()">Delete</button> -->
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<h1>Seed Table</h1>
+
+<table mat-table [dataSource]="seedData" class="mat-elevation-z8">
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef> Id. </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="select">
+    <th mat-header-cell *matHeaderCellDef> Select </th>
+    <td mat-cell *matCellDef="let element"> {{element.SeedVeriety}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="seedquantity">
+    <th mat-header-cell *matHeaderCellDef> SeedQuantity </th>
+    <td mat-cell *matCellDef="let element"> {{element.Quantity}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="amountseed">
+    <th mat-header-cell *matHeaderCellDef> AmountSeed </th>
+    <td mat-cell *matCellDef="let element"> {{element.AmounttIncurredForSeed}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="seedtreatement">
+    <th mat-header-cell *matHeaderCellDef> SeedTreatement </th>
+    <td mat-cell *matCellDef="let element"> {{element.Treatment}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="picture">
+    <th mat-header-cell *matHeaderCellDef> Picture </th>
+    <td mat-cell *matCellDef="let element"> {{element.UploadReferencepicture}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="chemicalseed">
+    <th mat-header-cell *matHeaderCellDef> ChemicalSeed </th>
+    <td mat-cell *matCellDef="let element"> {{element.chemical}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef> Delate </th>
+    <td mat-cell *matCellDef="let row">
+      <button mat-icon-button color="warn" class="delete-btn" (click)="delateDataSeed(row.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <!-- <button class="button" (click)="delateData()">Delete</button> -->
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+</table>
+
+
+
+
+
+<router-outlet></router-outlet>
+
+
+

@@ -1,0 +1,56 @@
+ 
+<form [formGroup]="userForm" (ngSubmit)="submitForm()" >
+  <!-- <input formControlName="firstName"> -->
+  <!-- <input [(ngModel)]="showMoreControls" [ngModelOptions]="{standalone: true}"> -->
+<div class="container">
+    <div class="box1">
+      <h1>Sowing</h1>
+      
+      <mat-form-field class="example-full-width">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker"  formControlName="Date" [required]="true">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #picker></mat-datepicker>
+      </mat-form-field>
+      <div>
+        <h3>Contractual</h3>
+        <label>
+          <input type="radio" name="options" [defaultChecked]="true"  value="yes"  (click)="handleRadio()">
+            Yes
+
+        </label>
+        <label>
+          <input type="radio" name="options" value="no"   (click)="handleRadio1()">
+            No
+        </label>
+    </div>
+    
+    <div *ngIf="selectedOption ==='no'">
+      <label for="label1">Cost/Acer</label><br><p></p>
+      <input type="number" id="label1" class="example-form"  formControlName="Cost"  placeholder="Number"  required="true">
+      <br><p></p>
+      <label for="label2">Upload Reference picture</label>
+      <br><p></p>
+      <input type="file" (change)="getFile($event)"  id="label2" class="example-form"    formControlName="Picture" placeholder="Upload Picture"  
+       required="true">
+      <br/>
+      
+    </div>
+    
+    <div *ngIf="selectedOption ==='yes'">
+      <br><p></p>
+      <label for="label2">Upload Reference picture</label>
+      <br><p></p>
+      <input type="file" (change)="getFile($event)" id="label2" class="example-form"   formControlName="Picture" placeholder="Text"  [required]="true">
+    </div>
+    <div>
+      <button class="button">Save & Continue</button>
+      
+    </div>
+  </div>
+  </div>
+
+</form>
+<!-- <button class="button" (click)="delateData()">Delete</button> -->
+  
